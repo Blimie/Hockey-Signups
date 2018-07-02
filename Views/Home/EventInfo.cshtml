@@ -1,0 +1,18 @@
+﻿@using _180416_Hockey.Data
+@model IEnumerable<Player>
+
+<table class="table table-bordered table-striped" style="margin-top: 60px">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Address</th>
+    </tr>
+    @foreach (Player p in Model)
+    {
+        <tr>
+            <td>@p.FirstName</td>
+            <td>@p.LastName</td>
+            <td>@p.EmailAddress</td>
+        </tr>
+    }
+</table>

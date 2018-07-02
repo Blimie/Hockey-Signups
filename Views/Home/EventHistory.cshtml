@@ -1,0 +1,18 @@
+﻿@using _180416_Hockey.Data 
+@model IEnumerable<Event>
+
+<table class="table table-bordered table-striped" style="margin-top: 60px">
+    <tr>
+        <th>Date</th>
+        <th>Signups</th>
+        <th>Details</th>
+    </tr>
+    @foreach (Event e in Model)
+    {
+        <tr>
+            <td>@e.Date.ToShortDateString()</td>
+            <td>@e.CurrentPlayerCount/@e.MaxPeople</td>            
+            <td> <a href="/home/eventinfo?eventid=@e.Id" class="btn btn-info">View Details</a>   </td>
+        </tr>
+    }
+</table>

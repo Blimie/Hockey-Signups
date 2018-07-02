@@ -1,0 +1,15 @@
+﻿@using _180416_Hockey.Models
+@model HomePageViewModel
+
+@if (Model.Message != null)
+{
+    <div class="alert alert-warning">
+        @Model.Message
+    </div>
+}
+<div class="well col-md-8">
+    <h1>Welcome to our weekly hockey game.</h1>
+    <br />
+    <a style="float:left" href="/home/EmailSignUp" class="btn btn-info">Sign up for the Weekly Notification</a>
+    <a style="float:right" href="/home/SignUp" class="btn btn-info">Sign up for the next upcoming game</a>
+</div>

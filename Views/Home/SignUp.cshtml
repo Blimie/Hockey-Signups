@@ -1,0 +1,26 @@
+﻿@using _180416_Hockey.Data
+@using _180416_Hockey.Models
+@model SignUpViewModel
+
+@if (Model.Event.Date < DateTime.Now)
+{
+    <h1>Game has not been posted yet. Please check back later. Thanks</h1>
+}
+else if (Model.Event.CurrentPlayerCount >= Model.Event.MaxPeople)
+{                       
+    <h1>Sorry, this weeks game is full. Please try again next week. We hope to accommodate you then.</h1>
+}
+else
+{
+    <h1>Sign up for Hockey Game on @Model.Event.Date.ToShortDateString()</h1>
+    <form action="/Home/signup" method="post" style="margin-top: 60px" class="well">
+        <input type="text" placeholder="First" name="FirstName" class="form-control" maxlength="50" value="@Model.FirstName" />
+        <br />
+        <input type="text" placeholder="Last" name="LastName" class="form-control" maxlength="50" value="@Model.LastName" />
+        <br />
+        <input type="text" placeholder="Email" name="EmailAddress" class="form-control" maxlength="50" value="@Model.EmailAddress" />
+        <br />
+        <input type="hidden" value="@Model.Event.Id" name="EventId" />
+        <button class="btn btn-warning btn-block">Sign up</button>
+    </form>
+}
